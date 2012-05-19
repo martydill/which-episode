@@ -1,0 +1,296 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091B915682C2B00CB9B6B /* UIKit.framework */; };
+		CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BB15682C2B00CB9B6B /* Foundation.framework */; };
+		CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */; };
+		CEF091C415682C2B00CB9B6B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CEF091C215682C2B00CB9B6B /* InfoPlist.strings */; };
+		CEF091C615682C2B00CB9B6B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF091C515682C2B00CB9B6B /* main.m */; };
+		CEF091CA15682C2B00CB9B6B /* WhichEpisodeAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF091C915682C2B00CB9B6B /* WhichEpisodeAppDelegate.m */; };
+		CEF091CD15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF091CB15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard */; };
+		CEF091D015682C2B00CB9B6B /* MainStoryboard_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEF091CE15682C2B00CB9B6B /* MainStoryboard_iPad.storyboard */; };
+		CEF091D315682C2B00CB9B6B /* WhichEpisodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF091D215682C2B00CB9B6B /* WhichEpisodeViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CEF091B515682C2B00CB9B6B /* Which Episode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Which Episode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CEF091B915682C2B00CB9B6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CEF091BB15682C2B00CB9B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CEF091C115682C2B00CB9B6B /* Which Episode-Info.plist */ = {isa = PBXFileReference; path = "Which Episode-Info.plist"; sourceTree = "<group>"; };
+		CEF091C315682C2B00CB9B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CEF091C515682C2B00CB9B6B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CEF091C715682C2B00CB9B6B /* Which Episode-Prefix.pch */ = {isa = PBXFileReference; path = "Which Episode-Prefix.pch"; sourceTree = "<group>"; };
+		CEF091C815682C2B00CB9B6B /* WhichEpisodeAppDelegate.h */ = {isa = PBXFileReference; path = WhichEpisodeAppDelegate.h; sourceTree = "<group>"; };
+		CEF091C915682C2B00CB9B6B /* WhichEpisodeAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhichEpisodeAppDelegate.m; sourceTree = "<group>"; };
+		CEF091CC15682C2B00CB9B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
+		CEF091CF15682C2B00CB9B6B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
+		CEF091D115682C2B00CB9B6B /* WhichEpisodeViewController.h */ = {isa = PBXFileReference; path = WhichEpisodeViewController.h; sourceTree = "<group>"; };
+		CEF091D215682C2B00CB9B6B /* WhichEpisodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WhichEpisodeViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CEF091B215682C2B00CB9B6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */,
+				CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */,
+				CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CEF091AA15682C2B00CB9B6B = {
+			isa = PBXGroup;
+			children = (
+				CEF091BF15682C2B00CB9B6B /* Which Episode */,
+				CEF091B815682C2B00CB9B6B /* Frameworks */,
+				CEF091B615682C2B00CB9B6B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CEF091B615682C2B00CB9B6B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CEF091B515682C2B00CB9B6B /* Which Episode.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CEF091B815682C2B00CB9B6B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CEF091B915682C2B00CB9B6B /* UIKit.framework */,
+				CEF091BB15682C2B00CB9B6B /* Foundation.framework */,
+				CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CEF091BF15682C2B00CB9B6B /* Which Episode */ = {
+			isa = PBXGroup;
+			children = (
+				CEF091C815682C2B00CB9B6B /* WhichEpisodeAppDelegate.h */,
+				CEF091C915682C2B00CB9B6B /* WhichEpisodeAppDelegate.m */,
+				CEF091CB15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard */,
+				CEF091CE15682C2B00CB9B6B /* MainStoryboard_iPad.storyboard */,
+				CEF091D115682C2B00CB9B6B /* WhichEpisodeViewController.h */,
+				CEF091D215682C2B00CB9B6B /* WhichEpisodeViewController.m */,
+				CEF091C015682C2B00CB9B6B /* Supporting Files */,
+			);
+			path = "Which Episode";
+			sourceTree = "<group>";
+		};
+		CEF091C015682C2B00CB9B6B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CEF091C115682C2B00CB9B6B /* Which Episode-Info.plist */,
+				CEF091C215682C2B00CB9B6B /* InfoPlist.strings */,
+				CEF091C515682C2B00CB9B6B /* main.m */,
+				CEF091C715682C2B00CB9B6B /* Which Episode-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CEF091B415682C2B00CB9B6B /* Which Episode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEF091D615682C2B00CB9B6B /* Build configuration list for PBXNativeTarget "Which Episode" */;
+			buildPhases = (
+				CEF091B115682C2B00CB9B6B /* Sources */,
+				CEF091B215682C2B00CB9B6B /* Frameworks */,
+				CEF091B315682C2B00CB9B6B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Which Episode";
+			productName = "Which Episode";
+			productReference = CEF091B515682C2B00CB9B6B /* Which Episode.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CEF091AC15682C2B00CB9B6B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WhichEpisode;
+				LastUpgradeCheck = 0430;
+			};
+			buildConfigurationList = CEF091AF15682C2B00CB9B6B /* Build configuration list for PBXProject "Which Episode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CEF091AA15682C2B00CB9B6B;
+			productRefGroup = CEF091B615682C2B00CB9B6B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CEF091B415682C2B00CB9B6B /* Which Episode */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CEF091B315682C2B00CB9B6B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF091C415682C2B00CB9B6B /* InfoPlist.strings in Resources */,
+				CEF091CD15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard in Resources */,
+				CEF091D015682C2B00CB9B6B /* MainStoryboard_iPad.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CEF091B115682C2B00CB9B6B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEF091C615682C2B00CB9B6B /* main.m in Sources */,
+				CEF091CA15682C2B00CB9B6B /* WhichEpisodeAppDelegate.m in Sources */,
+				CEF091D315682C2B00CB9B6B /* WhichEpisodeViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CEF091C215682C2B00CB9B6B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF091C315682C2B00CB9B6B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CEF091CB15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF091CC15682C2B00CB9B6B /* en */,
+			);
+			name = MainStoryboard_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		CEF091CE15682C2B00CB9B6B /* MainStoryboard_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CEF091CF15682C2B00CB9B6B /* en */,
+			);
+			name = MainStoryboard_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CEF091D415682C2B00CB9B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CEF091D515682C2B00CB9B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CEF091D715682C2B00CB9B6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Which Episode/Which Episode-Prefix.pch";
+				INFOPLIST_FILE = "Which Episode/Which Episode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CEF091D815682C2B00CB9B6B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Which Episode/Which Episode-Prefix.pch";
+				INFOPLIST_FILE = "Which Episode/Which Episode-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CEF091AF15682C2B00CB9B6B /* Build configuration list for PBXProject "Which Episode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF091D415682C2B00CB9B6B /* Debug */,
+				CEF091D515682C2B00CB9B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CEF091D615682C2B00CB9B6B /* Build configuration list for PBXNativeTarget "Which Episode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CEF091D715682C2B00CB9B6B /* Debug */,
+				CEF091D815682C2B00CB9B6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CEF091AC15682C2B00CB9B6B /* Project object */;
+}
