@@ -52,11 +52,16 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (void)updateSeasonAndEpisode
+{
+    seasonTextField.text = [NSString stringWithFormat:@"%d", show.season];
+    episodeTextField.text = [NSString stringWithFormat:@"%d", show.episode];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     showNameLabel.text = show.name;
-    seasonTextField.text = [NSString stringWithFormat:@"%d", show.season];
-    episodeTextField.text = [NSString stringWithFormat:@"%d", show.episode];
+    [self updateSeasonAndEpisode];
 }
 
 
@@ -69,6 +74,34 @@
     DataSaver* saver = [[DataSaver alloc] init];
     
     [saver saveRecord:show toDatabase:database];
+}
+
+- (IBAction)seasonMinusTouch:(id)sender
+{
+    if(show.season > 1)
+    {
+        show.season = show.season - 1;
+        [self updateSeasonAndEpisode];
+    }
+}
+- (IBAction)episodeMinusTouch:(id)sender
+{
+    if(show.episode > 1)
+    {
+        show.episode = show.episode - 1;
+        [self updateSeasonAndEpisode];
+    }
+}
+- (IBAction)episodePlusTouch:(id)sender
+{
+    show.episode = show.episode + 1;
+    [self updateSeasonAndEpisode];
+}
+
+- (IBAction)seasonPlusTouch:(id)sender
+{
+    show.season = show.season + 1;
+    [self updateSeasonAndEpisode];
 }
 
 @end

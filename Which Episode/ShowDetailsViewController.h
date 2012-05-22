@@ -12,11 +12,18 @@
 
 @interface ShowDetailsViewController : UIViewController
 
+- (IBAction)seasonMinusTouch:(id)sender;
+
+- (IBAction)episodeMinusTouch:(id)sender;
+
 @property (strong) Show* show;
 @property (weak, nonatomic) IBOutlet UITextField *showNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *seasonTextField;
 @property (weak, nonatomic) IBOutlet UITextField *episodeTextField;
 @property (assign) sqlite3* database;
 @property (nonatomic, retain) NSMutableArray* shows;
+
+- (IBAction)episodePlusTouch:(id)sender;
+- (IBAction)seasonPlusTouch:(id)sender;
 
 @end

@@ -53,7 +53,7 @@
     DataLoader* loader = [[DataLoader alloc] init];
     self.shows = [loader loadRecordsFromDatabase:database];
     
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
 
     self.navigationItem.rightBarButtonItem = anotherButton;
 }
