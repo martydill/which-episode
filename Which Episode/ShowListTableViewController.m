@@ -10,6 +10,8 @@
 
 @interface ShowListTableViewController ()
 
+-(void)addButtonPressed;
+
 @end
 
 @implementation ShowListTableViewController
@@ -23,15 +25,18 @@
     return self;
 }
 
+-(void)addButtonPressed
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
+
+    self.navigationItem.rightBarButtonItem = anotherButton;
 }
 
 - (void)viewDidUnload
