@@ -124,8 +124,8 @@
         {
             DLog(@"Failed to prepare statement %@", sql);
         }
-        
-        if(sqlite3_bind_text(statement, 1, [record.id UTF8String], -1, SQLITE_TRANSIENT) != SQLITE_OK)
+        const char* c = [record.id UTF8String];
+        if(sqlite3_bind_text(statement, 1, c, -1, SQLITE_TRANSIENT) != SQLITE_OK)
         {
             DLog(@"Failed to bind parameter");
         }

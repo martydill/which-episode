@@ -10,7 +10,7 @@
 
 @interface Show : NSObject
 
-@property (assign) NSString* id;
+@property (retain) NSString* id;
 @property (retain) NSString* name;
 @property (retain) NSString* imagePath;
 @property (assign) int episode;
