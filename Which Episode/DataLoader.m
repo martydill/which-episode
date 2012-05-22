@@ -39,6 +39,7 @@
            show.season = season;
            show.episode = episode;
            show.imagePath = imagePath;
+           show.isNew = false;
            
 //           ToDoEntry* entry = [[ToDoEntry alloc] init];
 //           entry.name = name;

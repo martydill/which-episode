@@ -30,6 +30,8 @@
         self.id = uuidString;
         self.season = 1;
         self.episode = 1;
+        self.isNew = true;
+        self.imagePath = @"";
     }
     
     return self;
