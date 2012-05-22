@@ -68,6 +68,15 @@
     [self.tableView reloadData];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSIndexPath* selectedPath = [self.tableView indexPathForSelectedRow];
+    Show* show = [self.shows objectAtIndex:selectedPath.row];
+    ShowDetailsViewController* detailsVC = (ShowDetailsViewController*)[segue destinationViewController];
+    
+    detailsVC.show = show;
+}
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);

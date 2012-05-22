@@ -35,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    showNameLabel.delegate = self;
 	// Do any additional setup after loading the view.
 }
 
@@ -46,6 +47,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
+
+-(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
+    [showNameLabel resignFirstResponder];
+    return YES;
+}
+
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
