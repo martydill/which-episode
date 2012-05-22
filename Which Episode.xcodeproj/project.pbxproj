@@ -11,6 +11,7 @@
 		CEA2D6F8156B31D70030FB5D /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F5156B31D70030FB5D /* DataLoader.m */; };
 		CEA2D6F9156B31D70030FB5D /* DataSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F7156B31D70030FB5D /* DataSaver.m */; };
 		CEA2D6FC156B32150030FB5D /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6FB156B32150030FB5D /* Show.m */; };
+		CEA2D6FE156B34B30030FB5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */; };
 		CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091B915682C2B00CB9B6B /* UIKit.framework */; };
 		CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BB15682C2B00CB9B6B /* Foundation.framework */; };
 		CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */; };
@@ -32,6 +33,7 @@
 		CEA2D6F7156B31D70030FB5D /* DataSaver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSaver.m; sourceTree = "<group>"; };
 		CEA2D6FA156B32150030FB5D /* Show.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Show.h; sourceTree = "<group>"; };
 		CEA2D6FB156B32150030FB5D /* Show.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Show.m; sourceTree = "<group>"; };
+		CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CEF091B515682C2B00CB9B6B /* Which Episode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Which Episode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF091B915682C2B00CB9B6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF091BB15682C2B00CB9B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -55,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEA2D6FE156B34B30030FB5D /* libsqlite3.dylib in Frameworks */,
 				CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */,
 				CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */,
 				CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */,
@@ -67,6 +70,7 @@
 		CEF091AA15682C2B00CB9B6B = {
 			isa = PBXGroup;
 			children = (
+				CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */,
 				CEF091BF15682C2B00CB9B6B /* Which Episode */,
 				CEF091B815682C2B00CB9B6B /* Frameworks */,
 				CEF091B615682C2B00CB9B6B /* Products */,
