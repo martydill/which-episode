@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <sqlite3.h>
 
 @interface ShowListTableViewController : UITableViewController
+
+@property (retain) NSMutableArray* shows;
+@property (assign) sqlite3* database;
 
 @end

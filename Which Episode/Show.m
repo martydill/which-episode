@@ -17,4 +17,22 @@
 @synthesize season;
 @synthesize isNew;
 
+-(id)init
+{
+    if(self = [super init])
+    {
+        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+        
+        // create a new CFStringRef (toll-free bridged to NSString)
+        // that you own
+        NSString *uuidString = (__bridge_transfer NSString *)CFUUIDCreateString(kCFAllocatorDefault, uuid);
+        CFRelease(uuid);
+        self.id = uuidString;
+        self.season = 1;
+        self.episode = 1;
+    }
+    
+    return self;
+}
+
 @end

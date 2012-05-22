@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE9BB2F0156B3A94008F9B57 /* whichepisode.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */; };
 		CEA2D6F2156B2D6D0030FB5D /* ShowDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F1156B2D6D0030FB5D /* ShowDetailsViewController.m */; };
 		CEA2D6F8156B31D70030FB5D /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F5156B31D70030FB5D /* DataLoader.m */; };
 		CEA2D6F9156B31D70030FB5D /* DataSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F7156B31D70030FB5D /* DataSaver.m */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = whichepisode.sqlite3; sourceTree = "<group>"; };
 		CEA2D6F0156B2D6D0030FB5D /* ShowDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsViewController.h; sourceTree = "<group>"; };
 		CEA2D6F1156B2D6D0030FB5D /* ShowDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsViewController.m; sourceTree = "<group>"; };
 		CEA2D6F4156B31D70030FB5D /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		CEF091C015682C2B00CB9B6B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */,
 				CEF091C115682C2B00CB9B6B /* Which Episode-Info.plist */,
 				CEF091C215682C2B00CB9B6B /* InfoPlist.strings */,
 				CEF091C515682C2B00CB9B6B /* main.m */,
@@ -184,6 +187,7 @@
 				CEF091C415682C2B00CB9B6B /* InfoPlist.strings in Resources */,
 				CEF091CD15682C2B00CB9B6B /* MainStoryboard_iPhone.storyboard in Resources */,
 				CEF091D015682C2B00CB9B6B /* MainStoryboard_iPad.storyboard in Resources */,
+				CE9BB2F0156B3A94008F9B57 /* whichepisode.sqlite3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

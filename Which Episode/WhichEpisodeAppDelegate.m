@@ -11,10 +11,38 @@
 @implementation WhichEpisodeAppDelegate
 
 @synthesize window = _window;
+@synthesize database;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
+    NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our  exact path to the documents directory
+    
+    NSString *fullPath = [documentsDirectory stringByAppendingPathComponent:@"whichepisode.sqlite3"];
+    
+    if(![fileManager fileExistsAtPath:fullPath])
+    {
+        NSString *sqLiteDb = [[NSBundle mainBundle] pathForResource:@"whichepisode" 
+                                                             ofType:@"sqlite3"];
+        DLog(@"First run, copying database from resources to documents directory");
+        
+        [fileManager copyItemAtPath:sqLiteDb toPath:fullPath error:nil];
+        
+        if (sqlite3_open([fullPath UTF8String], &database) != SQLITE_OK)
+        {
+            DLog(@"Failed to open database!");
+        }
+    }
+    else
+    {
+        if (sqlite3_open([fullPath UTF8String], &database) != SQLITE_OK)
+        {
+            DLog(@"Failed to open database!");
+        }
+        DLog(@"Database already exists in documents directory, using it"); 
+    }
+
     return YES;
 }
 							

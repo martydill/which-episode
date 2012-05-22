@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="eUL-RS-sh0" detailTextLabel="r2Q-76-0os" style="IBUITableViewCellStyleSubtitle" id="rfD-yA-sOU">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ShowCell" textLabel="eUL-RS-sh0" detailTextLabel="r2Q-76-0os" style="IBUITableViewCellStyleSubtitle" id="rfD-yA-sOU">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -72,11 +72,11 @@
             </objects>
             <point key="canvasLocation" x="-777" y="612"/>
         </scene>
-        <!--View Controller - Show Details-->
+        <!--Show Details View Controller - Show Details-->
         <scene sceneID="AlH-P5-yFD">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cjY-Sn-vqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="Qgh-Zn-CVE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowDetails" id="Qgh-Zn-CVE" customClass="ShowDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4B-6V-7bB">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -128,16 +128,16 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Show Details" id="zxO-DP-qfG"/>
+                    <connections>
+                        <outlet property="episodeTextField" destination="OcP-iT-1U8" id="hvI-BQ-AEu"/>
+                        <outlet property="seasonTextField" destination="Obq-pX-flP" id="On9-Pp-06G"/>
+                        <outlet property="showNameLabel" destination="iYC-ih-hHu" id="s2N-X1-p8d"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="240" y="122"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="ShowListTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowListTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -7,6 +7,10 @@
 //
 
 #import "ShowListTableViewController.h"
+#import "ShowDetailsViewController.h"
+#import "DataLoader.h"
+#import "DataSaver.h"
+#import "WhichEpisodeAppDelegate.h"
 
 @interface ShowListTableViewController ()
 
@@ -15,6 +19,9 @@
 @end
 
 @implementation ShowListTableViewController
+
+@synthesize shows;
+@synthesize database;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,16 +32,28 @@
     return self;
 }
 
+
 -(void)addButtonPressed
 {
-    
+    ShowDetailsViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowDetails"];
+    controller.database = self.database;
+    Show* show = [[Show alloc]  init];
+    [self.shows addObject:show];
+    controller.show = show;
+    [self.navigationController pushViewController:controller animated:YES];
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
+    WhichEpisodeAppDelegate* del = [[UIApplication sharedApplication] delegate];
+    self.database = del.database;
+    
+    DataLoader* loader = [[DataLoader alloc] init];
+    self.shows = [loader loadRecordsFromDatabase:database];
+    
+    UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
 
     self.navigationItem.rightBarButtonItem = anotherButton;
 }
@@ -42,8 +61,11 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.tableView reloadData];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -55,25 +77,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    return self.shows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ShowCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if(cell == nil)
+    {
     
-    // Configure the cell...
+    }
     
+    Show* show = [self.shows objectAtIndex:indexPath.row];
+    cell.textLabel.text = show.name;
+    NSString* whereLabel = [NSString stringWithFormat:@"Season %d Episode %d", show.season, show.episode];
+    cell.detailTextLabel.text = whereLabel;
+        
     return cell;
 }
 
