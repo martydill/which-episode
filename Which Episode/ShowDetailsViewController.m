@@ -15,6 +15,7 @@
 @end
 
 @implementation ShowDetailsViewController
+@synthesize showImageView;
 
 @synthesize show;
 @synthesize showNameLabel;
@@ -32,11 +33,15 @@
     return self;
 }
 
+-(void)blah:(id)target
+{
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     showNameLabel.delegate = self;
-	// Do any additional setup after loading the view.
 }
 
 - (void)viewDidUnload
@@ -44,15 +49,26 @@
     [self setShowNameLabel:nil];
     [self setSeasonTextField:nil];
     [self setEpisodeTextField:nil];
+    [self setShowImageView:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [showNameLabel resignFirstResponder];
+    
+    NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSData* data = [NSData dataWithContentsOfURL: 
+                        [NSURL URLWithString:url]];
+        [self performSelectorOnMainThread:@selector(fetchedData:) 
+                               withObject:data waitUntilDone:YES];
+    });
+    
+    
     return YES;
 }
-
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
@@ -109,6 +125,58 @@
 {
     show.season = show.season + 1;
     [self updateSeasonAndEpisode];
+}
+
+NSMutableData* allData;
+
+
+-(void)fetchedData:(NSData *)responseData {
+//parse out the json data
+NSError* error;
+NSDictionary* json = [NSJSONSerialization 
+                      JSONObjectWithData:responseData //1
+                      
+                      options:kNilOptions 
+                      error:&error];
+
+NSString* poster  = [json objectForKey:@"Poster"]; //2
+
+NSLog(@"loans: %@", poster); //3
+    
+    
+    NSString* httpGetUrl = poster;
+    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:httpGetUrl]];
+    allData = [[NSMutableData alloc] init];
+    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest: request delegate: self startImmediately:YES];
+}
+
+
+- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
+{
+    // Don't really care...
+}
+
+
+// When we receive data, add it to our collection of data
+- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
+{
+    [allData appendData:data];
+}
+
+
+// If the connection fails, cancel the timer and fire the delegate
+- (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
+{
+  //  [self.timer invalidate];
+
+}
+
+
+// If the connection has completed, cancel the timer and fire the delegate
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    UIImage* image = [[UIImage alloc] initWithData:allData];
+    self.showImageView.image = image;
 }
 
 @end

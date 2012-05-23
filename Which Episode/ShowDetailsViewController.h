@@ -26,4 +26,5 @@
 - (IBAction)episodePlusTouch:(id)sender;
 - (IBAction)seasonPlusTouch:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 @end
