@@ -58,7 +58,7 @@
     [showNameLabel resignFirstResponder];
     
     NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
-    
+    url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         NSData* data = [NSData dataWithContentsOfURL: 
                         [NSURL URLWithString:url]];
@@ -85,6 +85,13 @@
 {
     showNameLabel.text = show.name;
     [self updateSeasonAndEpisode];
+    
+    if(show.imagePath.length > 0)
+    {
+        NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
+        UIImage* image = [UIImage imageWithData:data];
+        showImageView.image = image;
+    }
 }
 
 
@@ -129,6 +136,13 @@
 
 NSMutableData* allData;
 
+- (NSString *)documentsPathForFileName:(NSString *)name
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);  
+    NSString *documentsPath = [paths objectAtIndex:0];
+    
+    return [documentsPath stringByAppendingPathComponent:name]; 
+}
 
 -(void)fetchedData:(NSData *)responseData {
 //parse out the json data
@@ -177,6 +191,13 @@ NSLog(@"loans: %@", poster); //3
 {
     UIImage* image = [[UIImage alloc] initWithData:allData];
     self.showImageView.image = image;
+    
+    NSData *pngData = UIImagePNGRepresentation(image);
+    NSString* filename = [NSString stringWithFormat:@"%@.png", show.id];
+    NSString* path = [self documentsPathForFileName:filename];
+    show.imagePath = path;
+    DLog(@"Saved image path: %@", path);
+    [pngData writeToFile:path atomically:YES];
 }
 
 @end

@@ -80,11 +80,15 @@
         {
             DLog(@"Failed to bind parameter episode");
         }
+        if(sqlite3_bind_text(statement, 5, [record.id UTF8String], -1, SQLITE_TRANSIENT) != SQLITE_OK)
+        {
+            DLog(@"Failed to bind parameter id");
+        }
     }
     
     if (sqlite3_step(statement) == SQLITE_DONE)
     {
-        DLog(@"Inserted");
+        DLog(@"Saved");
     }
     else
     {
