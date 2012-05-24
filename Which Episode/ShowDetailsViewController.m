@@ -9,6 +9,7 @@
 #import "ShowDetailsViewController.h"
 #import "Show.h"
 #import "DataSaver.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface ShowDetailsViewController ()
 
@@ -20,6 +21,8 @@
 @synthesize show;
 @synthesize showNameLabel;
 @synthesize seasonTextField;
+@synthesize loadingLabel;
+@synthesize loadingSpinner;
 @synthesize episodeTextField;
 @synthesize database;
 @synthesize shows;
@@ -42,6 +45,8 @@
 {
     [super viewDidLoad];
     showNameLabel.delegate = self;
+    [showImageView.layer setCornerRadius:6];
+    [showImageView.layer setMasksToBounds:TRUE];
 }
 
 - (void)viewDidUnload
@@ -50,6 +55,8 @@
     [self setSeasonTextField:nil];
     [self setEpisodeTextField:nil];
     [self setShowImageView:nil];
+    [self setLoadingLabel:nil];
+    [self setLoadingSpinner:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -57,6 +64,13 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [showNameLabel resignFirstResponder];
     
+    if(showNameLabel.text.length > 0)
+    {
+        loadingLabel.hidden = false;
+        loadingSpinner.hidden = false;
+        [loadingSpinner startAnimating];
+        showImageView.hidden = true;
+        
     NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
     url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
@@ -66,6 +80,7 @@
                                withObject:data waitUntilDone:YES];
     });
     
+    }
     
     return YES;
 }
@@ -198,6 +213,10 @@ NSLog(@"loans: %@", poster); //3
     show.imagePath = path;
     DLog(@"Saved image path: %@", path);
     [pngData writeToFile:path atomically:YES];
+    
+    loadingLabel.hidden = true;
+    loadingSpinner.hidden = true;
+    showImageView.hidden = false;
 }
 
 @end

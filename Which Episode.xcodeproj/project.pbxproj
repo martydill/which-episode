@@ -10,6 +10,7 @@
 		CE9BB2F0156B3A94008F9B57 /* whichepisode.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */; };
 		CE9BB2F4156B4242008F9B57 /* button_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2F2156B4242008F9B57 /* button_minus.png */; };
 		CE9BB2F5156B4242008F9B57 /* button_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2F3156B4242008F9B57 /* button_plus.png */; };
+		CE9BB2F7156DE96A008F9B57 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9BB2F6156DE96A008F9B57 /* QuartzCore.framework */; };
 		CEA2D6F2156B2D6D0030FB5D /* ShowDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F1156B2D6D0030FB5D /* ShowDetailsViewController.m */; };
 		CEA2D6F8156B31D70030FB5D /* DataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F5156B31D70030FB5D /* DataLoader.m */; };
 		CEA2D6F9156B31D70030FB5D /* DataSaver.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6F7156B31D70030FB5D /* DataSaver.m */; };
@@ -31,6 +32,7 @@
 		CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = whichepisode.sqlite3; sourceTree = "<group>"; };
 		CE9BB2F2156B4242008F9B57 /* button_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_minus.png; sourceTree = "<group>"; };
 		CE9BB2F3156B4242008F9B57 /* button_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_plus.png; sourceTree = "<group>"; };
+		CE9BB2F6156DE96A008F9B57 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEA2D6F0156B2D6D0030FB5D /* ShowDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowDetailsViewController.h; sourceTree = "<group>"; };
 		CEA2D6F1156B2D6D0030FB5D /* ShowDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowDetailsViewController.m; sourceTree = "<group>"; };
 		CEA2D6F4156B31D70030FB5D /* DataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataLoader.h; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9BB2F7156DE96A008F9B57 /* QuartzCore.framework in Frameworks */,
 				CEA2D6FE156B34B30030FB5D /* libsqlite3.dylib in Frameworks */,
 				CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */,
 				CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */,
@@ -76,6 +79,7 @@
 		CEF091AA15682C2B00CB9B6B = {
 			isa = PBXGroup;
 			children = (
+				CE9BB2F6156DE96A008F9B57 /* QuartzCore.framework */,
 				CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */,
 				CEF091BF15682C2B00CB9B6B /* Which Episode */,
 				CEF091B815682C2B00CB9B6B /* Frameworks */,

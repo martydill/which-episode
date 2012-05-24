@@ -19,6 +19,8 @@
 @property (strong) Show* show;
 @property (weak, nonatomic) IBOutlet UITextField *showNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *seasonTextField;
+@property (weak, nonatomic) IBOutlet UILabel *loadingLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingSpinner;
 @property (weak, nonatomic) IBOutlet UITextField *episodeTextField;
 @property (assign) sqlite3* database;
 @property (nonatomic, retain) NSMutableArray* shows;
