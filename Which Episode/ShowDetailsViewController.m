@@ -78,6 +78,24 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [showNameLabel resignFirstResponder];
     
+    if(![theTextField.text isEqualToString:show.name])
+    {
+        if(show.name != nil && show.name.length > 0)
+        {
+            showImageView.image = nil;
+            NSFileManager* manager = [[NSFileManager alloc] init];
+            if([manager fileExistsAtPath:show.imagePath])
+            {
+                DLog(@"Deleting image file %@", show.imagePath);
+                [manager removeItemAtPath:show.imagePath error:nil];
+            }
+            
+            show.imagePath = @"";
+        }
+    }
+
+    show.name = showNameLabel.text;
+    
     if(showNameLabel.text.length > 0)
     {
         loadingLabel.hidden = false;
@@ -85,15 +103,13 @@
         [loadingSpinner startAnimating];
         showImageView.hidden = true;
         
-    NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
-    url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSData* data = [NSData dataWithContentsOfURL: 
-                        [NSURL URLWithString:url]];
-        [self performSelectorOnMainThread:@selector(fetchedData:) 
-                               withObject:data waitUntilDone:YES];
-    });
-    
+        NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
+        url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            NSData* data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
+            [self performSelectorOnMainThread:@selector(fetchedData:) 
+                                   withObject:data waitUntilDone:YES];
+        });
     }
     
     return YES;
@@ -181,14 +197,12 @@ NSMutableData* allData;
     return [documentsPath stringByAppendingPathComponent:name]; 
 }
 
--(void)fetchedData:(NSData *)responseData {
-
-NSError* error;
-NSDictionary* json = [NSJSONSerialization 
-                      JSONObjectWithData:responseData //1
-                      
-                      options:kNilOptions 
-                      error:&error];
+-(void)fetchedData:(NSData *)responseData
+{
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData                    
+                                                        options:kNilOptions 
+                                                        error:&error];
 
     NSString* poster  = [json objectForKey:@"Poster"];
 
@@ -204,7 +218,6 @@ NSDictionary* json = [NSJSONSerialization
         [self showImageDownloadError];
     }
 }
-
 
 - (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
 {
