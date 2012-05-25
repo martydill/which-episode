@@ -107,17 +107,12 @@
 {
     if(record.imagePath != nil)
     {
-//        NSFileManager* manager = [[NSFileManager alloc] init];
-//        if([manager fileExistsAtPath:record.imagePath])
-//        {
-//            DLog(@"Deleting image file %@", record.imagePath);
-//            [manager removeItemAtPath:record.imagePath error:nil];
-//        }
-//        if([manager fileExistsAtPath:record.imageThumbnailPath])
-//        {
-//            DLog(@"Deleting image thumbnail file %@", record.imageThumbnailPath);
-//            [manager removeItemAtPath:record.imageThumbnailPath error:nil];
-//        }
+        NSFileManager* manager = [[NSFileManager alloc] init];
+        if([manager fileExistsAtPath:record.imagePath])
+        {
+            DLog(@"Deleting image file %@", record.imagePath);
+            [manager removeItemAtPath:record.imagePath error:nil];
+        }
     }
     
     if(!record.isNew)
