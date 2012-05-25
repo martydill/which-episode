@@ -32,6 +32,7 @@
         self.episode = 1;
         self.isNew = true;
         self.imagePath = @"";
+        self.name = @"";
     }
     
     return self;
