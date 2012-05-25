@@ -45,8 +45,22 @@
 {
     [super viewDidLoad];
     showNameLabel.delegate = self;
-    [showImageView.layer setCornerRadius:6];
-    [showImageView.layer setMasksToBounds:TRUE];
+    
+    UIImage *patternImage = [UIImage imageNamed:@"scribble_light.png"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
+    
+//    [showImageView.layer setCornerRadius:6];
+//    [showImageView.layer setMasksToBounds:TRUE];
+//    showImageView.layer.borderColor = [UIColor blackColor].CGColor;
+//    showImageView.layer.borderWidth = 2.0f;
+    
+    [showImageView.layer setCornerRadius:30.0f];
+    [showImageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [showImageView.layer setBorderWidth:1.5f];
+    [showImageView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [showImageView.layer setShadowOpacity:0.8];
+    [showImageView.layer setShadowRadius:3.0];
+ //   [showImageView.layer setShadowOffset:CGSizeMake(-2.0, -2.0)];
 }
 
 - (void)viewDidUnload
@@ -149,6 +163,14 @@
     [self updateSeasonAndEpisode];
 }
 
+-(void)showImageDownloadError
+{
+    loadingLabel.hidden = false;
+    loadingLabel.text = @"Unable to download image";
+    loadingSpinner.hidden = true;
+    showImageView.hidden = false;   
+}
+
 NSMutableData* allData;
 
 - (NSString *)documentsPathForFileName:(NSString *)name
@@ -160,7 +182,7 @@ NSMutableData* allData;
 }
 
 -(void)fetchedData:(NSData *)responseData {
-//parse out the json data
+
 NSError* error;
 NSDictionary* json = [NSJSONSerialization 
                       JSONObjectWithData:responseData //1
@@ -168,15 +190,19 @@ NSDictionary* json = [NSJSONSerialization
                       options:kNilOptions 
                       error:&error];
 
-NSString* poster  = [json objectForKey:@"Poster"]; //2
+    NSString* poster  = [json objectForKey:@"Poster"];
 
-NSLog(@"loans: %@", poster); //3
-    
-    
-    NSString* httpGetUrl = poster;
-    NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:httpGetUrl]];
-    allData = [[NSMutableData alloc] init];
-    NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest: request delegate: self startImmediately:YES];
+    if(poster != nil)
+    {    
+        NSString* httpGetUrl = poster;
+        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:httpGetUrl]];
+        allData = [[NSMutableData alloc] init];
+        NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest: request delegate: self startImmediately:YES];
+    }
+    else 
+    {
+        [self showImageDownloadError];
+    }
 }
 
 
