@@ -45,22 +45,10 @@
 {
     [super viewDidLoad];
     showNameLabel.delegate = self;
-    
-  //  UIImage *patternImage = [UIImage imageNamed:@"whichepisode_background.png"];
-  //  self.view.backgroundColor = [UIColor colorWithPatternImage:patternImage];
-    
-//    [showImageView.layer setCornerRadius:6];
-//    [showImageView.layer setMasksToBounds:TRUE];
-//    showImageView.layer.borderColor = [UIColor blackColor].CGColor;
-//    showImageView.layer.borderWidth = 2.0f;
-    
+      
     [showImageView.layer setCornerRadius:30.0f];
     [showImageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [showImageView.layer setBorderWidth:1.5f];
-    [showImageView.layer setShadowColor:[UIColor blackColor].CGColor];
-    [showImageView.layer setShadowOpacity:0.8];
-    [showImageView.layer setShadowRadius:1.0];
-    [showImageView.layer setShadowOffset:CGSizeMake(-2.0, -2.0)];
 }
 
 - (void)viewDidUnload
