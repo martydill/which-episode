@@ -172,7 +172,7 @@
     loadingLabel.hidden = false;
     loadingLabel.text = @"Unable to download image";
     loadingSpinner.hidden = true;
-    showImageView.hidden = false;   
+    showImageView.hidden = true;   
 }
 
 NSMutableData* allData;
