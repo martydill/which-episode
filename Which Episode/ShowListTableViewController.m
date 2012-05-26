@@ -114,21 +114,15 @@
     }
     
     Show* show = [self.shows objectAtIndex:indexPath.row];
-    cell.textLabel.text = show.name;
+    if(show.name != nil && show.name.length > 0)
+        cell.textLabel.text = show.name;
+    else
+        cell.textLabel.text = @"[No Name]";
     NSString* whereLabel = [NSString stringWithFormat:@"Season %d Episode %d", show.season, show.episode];
     cell.detailTextLabel.text = whereLabel;
         
     return cell;
 }
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
 
 // Override to support editing the table view.

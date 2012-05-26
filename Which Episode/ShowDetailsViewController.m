@@ -87,25 +87,24 @@ bool isDownloadingShowInfo = false;
             
             show.imagePath = @"";
         }
-    }
+    
+        show.name = showNameLabel.text;
+        
+        if(showNameLabel.text.length > 0)
+        {
+            loadingLabel.text = @"Loading Image";
+            loadingLabel.hidden = false;
+            loadingSpinner.hidden = false;
+            [loadingSpinner startAnimating];
+        
+            NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
+            url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 
-    show.name = showNameLabel.text;
-    
-    if(showNameLabel.text.length > 0)
-    {
-        loadingLabel.text = @"Loading Image";
-        loadingLabel.hidden = false;
-        loadingSpinner.hidden = false;
-        [loadingSpinner startAnimating];
-    
-        NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
-        url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-
-        isDownloadingShowInfo = true;
-        downloader = [[Downloader alloc] initWithUrl:url timeout:10 delegate:self];
-        [downloader start];
+            isDownloadingShowInfo = true;
+            downloader = [[Downloader alloc] initWithUrl:url timeout:10 delegate:self];
+            [downloader start];
+        }
     }
-    
     return YES;
 }
 
