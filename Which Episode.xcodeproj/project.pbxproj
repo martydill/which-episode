@@ -21,6 +21,8 @@
 		CEA2D6FC156B32150030FB5D /* Show.m in Sources */ = {isa = PBXBuildFile; fileRef = CEA2D6FB156B32150030FB5D /* Show.m */; };
 		CEA2D6FE156B34B30030FB5D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */; };
 		CED2C8F4157191F70045AB13 /* Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = CED2C8F3157191F70045AB13 /* Downloader.m */; };
+		CED2C8F81571A3830045AB13 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CED2C8F61571A3830045AB13 /* Default.png */; };
+		CED2C8F91571A3830045AB13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CED2C8F71571A3830045AB13 /* Default@2x.png */; };
 		CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091B915682C2B00CB9B6B /* UIKit.framework */; };
 		CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BB15682C2B00CB9B6B /* Foundation.framework */; };
 		CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */; };
@@ -53,6 +55,8 @@
 		CEA2D6FD156B34B30030FB5D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		CED2C8F2157191F70045AB13 /* Downloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Downloader.h; path = ../Downloader.h; sourceTree = "<group>"; };
 		CED2C8F3157191F70045AB13 /* Downloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Downloader.m; path = ../Downloader.m; sourceTree = "<group>"; };
+		CED2C8F61571A3830045AB13 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CED2C8F71571A3830045AB13 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CEF091B515682C2B00CB9B6B /* Which Episode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Which Episode.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEF091B915682C2B00CB9B6B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CEF091BB15682C2B00CB9B6B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -121,6 +125,8 @@
 		CEF091BF15682C2B00CB9B6B /* Which Episode */ = {
 			isa = PBXGroup;
 			children = (
+				CED2C8F61571A3830045AB13 /* Default.png */,
+				CED2C8F71571A3830045AB13 /* Default@2x.png */,
 				CED2C8F2157191F70045AB13 /* Downloader.h */,
 				CED2C8F3157191F70045AB13 /* Downloader.m */,
 				CEA2D6F4156B31D70030FB5D /* DataLoader.h */,
@@ -221,6 +227,8 @@
 				CE9BB307156F31D7008F9B57 /* whichepisode_background.png in Resources */,
 				CE9BB309156F3618008F9B57 /* whichepisode_114.png in Resources */,
 				CE9BB30B156F361B008F9B57 /* whichepisode_57.png in Resources */,
+				CED2C8F81571A3830045AB13 /* Default.png in Resources */,
+				CED2C8F91571A3830045AB13 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +338,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -345,7 +353,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
