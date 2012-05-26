@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359706225.108913"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
+         startingLineNumber = "47"
+         endingLineNumber = "47"
          landmarkName = "-blah:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,24 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359761944.577565"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "245"
-         endingLineNumber = "245"
-         landmarkName = "-connection:didReceiveData:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359761944.577565"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-viewWillDisappear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +125,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359761944.577565"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "125"
-         endingLineNumber = "125"
+         startingLineNumber = "147"
+         endingLineNumber = "147"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -151,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359761944.577565"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "126"
-         endingLineNumber = "126"
+         startingLineNumber = "148"
+         endingLineNumber = "148"
          landmarkName = "-viewWillAppear:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359706225.108913"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
+         startingLineNumber = "77"
+         endingLineNumber = "77"
          landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -177,24 +164,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359761944.577565"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "96"
-         endingLineNumber = "96"
+         startingLineNumber = "102"
+         endingLineNumber = "102"
          landmarkName = "-textFieldShouldReturn:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "Which Episode/ShowDetailsViewController.m"
-         timestampString = "359762024.110674"
+         timestampString = "359766015.120408"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "215"
+         endingLineNumber = "215"
          landmarkName = "-getPosterUrlFromJson:"
          landmarkType = "5">
       </FileBreakpoint>

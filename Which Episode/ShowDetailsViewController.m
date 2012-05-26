@@ -10,17 +10,20 @@
 #import "Show.h"
 #import "DataSaver.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Downloader.h"
 
 //#define BASE_SEARCH_URL @"http://www.imdbapi.com/?t=%@"
 #define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"
 
 @interface ShowDetailsViewController ()
-
+@property (strong) Downloader* downloader;
 @end
 
 @implementation ShowDetailsViewController
+@synthesize downloader;
 @synthesize showImageView;
-
+@synthesize timer;
+@synthesize connection;
 @synthesize show;
 @synthesize showNameLabel;
 @synthesize seasonTextField;
@@ -66,6 +69,8 @@
     // Release any retained subviews of the main view.
 }
 
+bool isDownloadingShowInfo = false;
+
 -(BOOL)textFieldShouldReturn:(UITextField *)theTextField {
     [showNameLabel resignFirstResponder];
     
@@ -88,22 +93,39 @@
     
     if(showNameLabel.text.length > 0)
     {
+        loadingLabel.text = @"Loading image...";
         loadingLabel.hidden = false;
         loadingSpinner.hidden = false;
         [loadingSpinner startAnimating];
         showImageView.hidden = true;
-        
+    
         NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
         url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSData* data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
-            [self performSelectorOnMainThread:@selector(fetchedData:) 
-                                   withObject:data waitUntilDone:YES];
-        });
+        isDownloadingShowInfo = true;
+        downloader = [[Downloader alloc] initWithUrl:url timeout:10 delegate:self];
+        [downloader start];
     }
     
     return YES;
+}
+
+-(void)didGetResults:(NSData *)data
+{
+    self.downloader = nil;
+    
+    if(data == nil)
+    {
+        [self showImageDownloadError];
+    }
+    else if(isDownloadingShowInfo)
+    {
+        [self handleShowInfoDownloaded:data];
+    }
+    else 
+    {
+        [self handleImageInfoDownloaded:data];
+    }
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -127,6 +149,11 @@
         NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
         UIImage* image = [UIImage imageWithData:data];
         showImageView.image = image;
+    }
+    else
+    {
+        loadingLabel.hidden = false;
+        loadingLabel.text = @"No Image";
     }
 }
 
@@ -178,7 +205,7 @@
     showImageView.hidden = true;   
 }
 
-NSMutableData* allData;
+
 
 - (NSString *)documentsPathForFileName:(NSString *)name
 {
@@ -203,23 +230,20 @@ NSMutableData* allData;
     return nil;
 }
 
--(void)fetchedData:(NSData *)responseData
+-(void)handleShowInfoDownloaded:(NSData *)data
 {
     NSError* error;
-    id json = [NSJSONSerialization JSONObjectWithData:responseData                    
+    id json = [NSJSONSerialization JSONObjectWithData:data                    
                                                         options:kNilOptions 
                                                     error:&error];
     
-   
-
     NSString* poster  = [self getPosterUrlFromJson:json];//[json objectForKey:@"Poster"];
 
     if(poster != nil)
     {    
-        NSString* httpGetUrl = poster;
-        NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:httpGetUrl]];
-        allData = [[NSMutableData alloc] init];
-        NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest: request delegate: self startImmediately:YES];
+        isDownloadingShowInfo = false;
+        downloader = [[Downloader alloc] initWithUrl:poster timeout:10 delegate:self];
+        [downloader start];
     }
     else 
     {
@@ -227,31 +251,10 @@ NSMutableData* allData;
     }
 }
 
-- (void)connection:(NSURLConnection*)connection didReceiveResponse:(NSURLResponse *)response
+
+- (void)handleImageInfoDownloaded:(NSData*)data
 {
-    // Don't really care...
-}
-
-
-// When we receive data, add it to our collection of data
-- (void)connection:(NSURLConnection*)connection didReceiveData:(NSData*)data
-{
-    [allData appendData:data];
-}
-
-
-// If the connection fails, cancel the timer and fire the delegate
-- (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error
-{
-  //  [self.timer invalidate];
-
-}
-
-
-// If the connection has completed, cancel the timer and fire the delegate
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection
-{
-    UIImage* image = [[UIImage alloc] initWithData:allData];
+    UIImage* image = [[UIImage alloc] initWithData:data];
     self.showImageView.image = image;
     
     NSData *pngData = UIImagePNGRepresentation(image);

@@ -27,6 +27,7 @@
 
 - (IBAction)episodePlusTouch:(id)sender;
 - (IBAction)seasonPlusTouch:(id)sender;
-
+@property (strong) NSURLConnection* connection;
+@property (strong) NSTimer* timer;
 @property (weak, nonatomic) IBOutlet UIImageView *showImageView;
 @end
