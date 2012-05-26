@@ -11,6 +11,9 @@
 #import "DataSaver.h"
 #import <QuartzCore/QuartzCore.h>
 
+//#define BASE_SEARCH_URL @"http://www.imdbapi.com/?t=%@"
+#define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"
+
 @interface ShowDetailsViewController ()
 
 @end
@@ -74,7 +77,6 @@
             NSFileManager* manager = [[NSFileManager alloc] init];
             if([manager fileExistsAtPath:show.imagePath])
             {
-                DLog(@"Deleting image file %@", show.imagePath);
                 [manager removeItemAtPath:show.imagePath error:nil];
             }
             
@@ -91,8 +93,9 @@
         [loadingSpinner startAnimating];
         showImageView.hidden = true;
         
-        NSString* url = [NSString stringWithFormat:@"http://www.imdbapi.com/?t=%@", showNameLabel.text];
+        NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
         url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSData* data = [NSData dataWithContentsOfURL: [NSURL URLWithString:url]];
             [self performSelectorOnMainThread:@selector(fetchedData:) 
@@ -185,14 +188,31 @@ NSMutableData* allData;
     return [documentsPath stringByAppendingPathComponent:name]; 
 }
 
+-(NSString*)getPosterUrlFromJson:(id)json
+{
+    if([json isKindOfClass:[NSArray class]])
+    {
+        for(NSDictionary* dict in json)
+        {
+            NSDictionary* images = [dict valueForKey:@"images"];
+            NSString* poster = [images valueForKey:@"poster"];
+            return poster;
+        }
+    }
+    
+    return nil;
+}
+
 -(void)fetchedData:(NSData *)responseData
 {
     NSError* error;
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:responseData                    
+    id json = [NSJSONSerialization JSONObjectWithData:responseData                    
                                                         options:kNilOptions 
-                                                        error:&error];
+                                                    error:&error];
+    
+   
 
-    NSString* poster  = [json objectForKey:@"Poster"];
+    NSString* poster  = [self getPosterUrlFromJson:json];//[json objectForKey:@"Poster"];
 
     if(poster != nil)
     {    
@@ -238,7 +258,7 @@ NSMutableData* allData;
     NSString* filename = [NSString stringWithFormat:@"%@.png", show.id];
     NSString* path = [self documentsPathForFileName:filename];
     show.imagePath = path;
-    DLog(@"Saved image path: %@", path);
+
     [pngData writeToFile:path atomically:YES];
     
     loadingLabel.hidden = true;
