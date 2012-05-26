@@ -93,11 +93,10 @@ bool isDownloadingShowInfo = false;
     
     if(showNameLabel.text.length > 0)
     {
-        loadingLabel.text = @"Loading image...";
+        loadingLabel.text = @"Loading Image";
         loadingLabel.hidden = false;
         loadingSpinner.hidden = false;
         [loadingSpinner startAnimating];
-        showImageView.hidden = true;
     
         NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
         url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
@@ -200,11 +199,9 @@ bool isDownloadingShowInfo = false;
 -(void)showImageDownloadError
 {
     loadingLabel.hidden = false;
-    loadingLabel.text = @"Unable to download image";
+    loadingLabel.text = @"Download Failed";
     loadingSpinner.hidden = true;
-    showImageView.hidden = true;   
 }
-
 
 
 - (NSString *)documentsPathForFileName:(NSString *)name
@@ -266,7 +263,6 @@ bool isDownloadingShowInfo = false;
     
     loadingLabel.hidden = true;
     loadingSpinner.hidden = true;
-    showImageView.hidden = false;
 }
 
 @end

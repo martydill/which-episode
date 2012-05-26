@@ -100,14 +100,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Episode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="G5D-yU-37d">
-                                <rect key="frame" x="15" y="146" width="214" height="21"/>
+                                <rect key="frame" x="15" y="151" width="214" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name of show" minimumFontSize="17" id="iYC-ih-hHu">
-                                <rect key="frame" x="15" y="33" width="285" height="31"/>
+                                <rect key="frame" x="25" y="30" width="271" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -124,13 +124,13 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="17" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="OcP-iT-1U8">
-                                <rect key="frame" x="129" y="180" width="62" height="31"/>
+                                <rect key="frame" x="129" y="183" width="62" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qXc-aa-RUj">
-                                <rect key="frame" x="49" y="175" width="43" height="44"/>
+                                <rect key="frame" x="25" y="177" width="66" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="button_minus.png">
@@ -145,7 +145,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4Ls-gT-d47">
-                                <rect key="frame" x="222" y="175" width="44" height="44"/>
+                                <rect key="frame" x="230" y="177" width="66" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="button_plus.png">
@@ -160,7 +160,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cKp-fd-y8N">
-                                <rect key="frame" x="222" y="98" width="44" height="44"/>
+                                <rect key="frame" x="230" y="98" width="66" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="button_plus.png">
@@ -175,7 +175,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SOK-b1-fwR">
-                                <rect key="frame" x="49" y="98" width="44" height="44"/>
+                                <rect key="frame" x="25" y="98" width="66" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                 <state key="normal" image="button_minus.png">
@@ -189,10 +189,10 @@
                                     <action selector="seasonMinusTouch:" destination="Qgh-Zn-CVE" eventType="touchUpInside" id="tYT-7O-GJa"/>
                                 </connections>
                             </button>
-                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading image..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="T6s-kP-Opw">
-                                <rect key="frame" x="56" y="291" width="209" height="21"/>
+                            <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="T6s-kP-Opw">
+                                <rect key="frame" x="70" y="304" width="180" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -219,10 +219,30 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button_minus.png" width="128" height="128"/>
-        <image name="button_plus.png" width="128" height="128"/>
+        <image name="button_minus.png" width="192" height="128"/>
+        <image name="button_plus.png" width="192" height="128"/>
         <image name="whichepisode_background.png" width="960" height="640"/>
     </resources>
+    <classes>
+        <class className="ShowDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="episodeMinusTouch:"/>
+                <relationship kind="action" name="episodePlusTouch:"/>
+                <relationship kind="action" name="seasonMinusTouch:"/>
+                <relationship kind="action" name="seasonPlusTouch:"/>
+                <relationship kind="outlet" name="episodeTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="seasonTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="showImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="showNameLabel" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ShowListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowListTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
