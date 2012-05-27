@@ -132,6 +132,11 @@ bool isDownloadingShowInfo = false;
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+        
+}
+
 - (void)updateSeasonAndEpisode
 {
     seasonTextField.text = [NSString stringWithFormat:@"%d", show.season];
@@ -143,20 +148,10 @@ bool isDownloadingShowInfo = false;
     showNameLabel.text = show.name;
     [self updateSeasonAndEpisode];
     
-   // if(show.imagePath.length > 0)
-   // {
-        if(show.image != nil)
-        {
-            showImageView.image = show.image;
-        }
-//        else
-//        {
-//            NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
-//            UIImage* image = [UIImage imageWithData:data];
-//            showImageView.image = image;
-//            show.image = image; 
-//        }
-   // }
+    if(show.image != nil)
+    {
+        showImageView.image = show.image;
+    }
     else
     {
         loadingLabel.hidden = false;
