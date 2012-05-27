@@ -251,10 +251,45 @@ bool isDownloadingShowInfo = false;
     }
 }
 
+- (UIImage *)imageWithImage:(UIImage *)image scaledToSize:(CGSize)size
+{
+    if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]) {
+        UIGraphicsBeginImageContextWithOptions(size, NO, [[UIScreen mainScreen] scale]);
+    } else {
+        UIGraphicsBeginImageContext(size);
+    }
+    [image drawInRect:CGRectMake(0, 0, size.width, size.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();    
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+// Image scaling code from http://stackoverflow.com/a/9575252/184630
+- (UIImage *)imageWithImage:(UIImage *)image scaledToMaxWidth:(CGFloat)width maxHeight:(CGFloat)height
+{
+    CGFloat oldWidth = image.size.width;
+    CGFloat oldHeight = image.size.height;
+    
+    CGFloat scaleFactor;
+    
+    if (oldWidth > oldHeight) {
+        scaleFactor = width / oldWidth;
+    } else {
+        scaleFactor = height / oldHeight;
+    }
+    
+    CGFloat newHeight = oldHeight * scaleFactor;
+    CGFloat newWidth = oldWidth * scaleFactor;
+    CGSize newSize = CGSizeMake(newWidth, newHeight);
+    
+    return [self imageWithImage:image scaledToSize:newSize];
+}
+
 
 - (void)handleImageInfoDownloaded:(NSData*)data
 {
-    UIImage* image = [[UIImage alloc] initWithData:data];
+    UIImage* bigImage = [[UIImage alloc] initWithData:data];
+    UIImage* image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 2 maxHeight:180 * 2];
     self.showImageView.image = image;
     self.show.image = image;
     
@@ -262,11 +297,12 @@ bool isDownloadingShowInfo = false;
     NSString* filename = [NSString stringWithFormat:@"%@.png", show.id];
     NSString* path = [self documentsPathForFileName:filename];
     show.imagePath = path;
-
+    
     [pngData writeToFile:path atomically:YES];
     
     loadingLabel.hidden = true;
     loadingSpinner.hidden = true;
 }
+
 
 @end
