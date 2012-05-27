@@ -16,6 +16,7 @@
 @synthesize imagePath;
 @synthesize season;
 @synthesize isNew;
+@synthesize image;
 
 -(id)init
 {
@@ -33,9 +34,18 @@
         self.isNew = true;
         self.imagePath = @"";
         self.name = @"";
+        self.image = nil;
     }
     
     return self;
+}
+
+-(void)dealloc
+{
+    if(self.image != nil)
+    {
+        self.image = nil;
+    }
 }
 
 @end

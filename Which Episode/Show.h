@@ -16,5 +16,6 @@
 @property (assign) int episode;
 @property (assign) int season;
 @property (assign) bool isNew;
+@property (retain) UIImage* image;
 
 @end

@@ -79,6 +79,7 @@ bool isDownloadingShowInfo = false;
         if(show.name != nil && show.name.length > 0)
         {
             showImageView.image = nil;
+            show.image = nil;
             NSFileManager* manager = [[NSFileManager alloc] init];
             if([manager fileExistsAtPath:show.imagePath])
             {
@@ -142,12 +143,20 @@ bool isDownloadingShowInfo = false;
     showNameLabel.text = show.name;
     [self updateSeasonAndEpisode];
     
-    if(show.imagePath.length > 0)
-    {
-        NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
-        UIImage* image = [UIImage imageWithData:data];
-        showImageView.image = image;
-    }
+   // if(show.imagePath.length > 0)
+   // {
+        if(show.image != nil)
+        {
+            showImageView.image = show.image;
+        }
+//        else
+//        {
+//            NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
+//            UIImage* image = [UIImage imageWithData:data];
+//            showImageView.image = image;
+//            show.image = image; 
+//        }
+   // }
     else
     {
         loadingLabel.hidden = false;
@@ -252,6 +261,7 @@ bool isDownloadingShowInfo = false;
 {
     UIImage* image = [[UIImage alloc] initWithData:data];
     self.showImageView.image = image;
+    self.show.image = image;
     
     NSData *pngData = UIImagePNGRepresentation(image);
     NSString* filename = [NSString stringWithFormat:@"%@.png", show.id];

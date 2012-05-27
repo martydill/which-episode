@@ -41,6 +41,13 @@
            show.imagePath = imagePath;
            show.isNew = false;
            
+           NSFileManager* manager = [[NSFileManager alloc] init];
+           if([manager fileExistsAtPath:show.imagePath])
+           {
+               NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
+               UIImage* image = [UIImage imageWithData:data];
+               show.image = image;
+           }
 //           ToDoEntry* entry = [[ToDoEntry alloc] init];
 //           entry.name = name;
 //           entry.description = description;
