@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE13665315C4A38D000521DC /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13665215C4A38D000521DC /* iRate.m */; };
 		CE9BB2F0156B3A94008F9B57 /* whichepisode.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */; };
 		CE9BB2F4156B4242008F9B57 /* button_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2F2156B4242008F9B57 /* button_minus.png */; };
 		CE9BB2F5156B4242008F9B57 /* button_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2F3156B4242008F9B57 /* button_plus.png */; };
@@ -36,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE13665115C4A38D000521DC /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
+		CE13665215C4A38D000521DC /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = whichepisode.sqlite3; sourceTree = "<group>"; };
 		CE9BB2F2156B4242008F9B57 /* button_minus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_minus.png; sourceTree = "<group>"; };
 		CE9BB2F3156B4242008F9B57 /* button_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_plus.png; sourceTree = "<group>"; };
@@ -125,6 +128,8 @@
 		CEF091BF15682C2B00CB9B6B /* Which Episode */ = {
 			isa = PBXGroup;
 			children = (
+				CE13665115C4A38D000521DC /* iRate.h */,
+				CE13665215C4A38D000521DC /* iRate.m */,
 				CED2C8F61571A3830045AB13 /* Default.png */,
 				CED2C8F71571A3830045AB13 /* Default@2x.png */,
 				CED2C8F2157191F70045AB13 /* Downloader.h */,
@@ -248,6 +253,7 @@
 				CEA2D6F9156B31D70030FB5D /* DataSaver.m in Sources */,
 				CEA2D6FC156B32150030FB5D /* Show.m in Sources */,
 				CED2C8F4157191F70045AB13 /* Downloader.m in Sources */,
+				CE13665315C4A38D000521DC /* iRate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
