@@ -93,12 +93,13 @@ const int Sort_ZtoA = 3;
     }
     else if(sort == Sort_ZtoA)
     {
-        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:NO selector:@selector(localizedCaseInsensitiveCompare:)];
         self.sortedShows = [self.shows sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     }
     else if(sort == Sort_AtoZ)
     {
-        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)];
+
         self.sortedShows = [self.shows sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
     }
 
