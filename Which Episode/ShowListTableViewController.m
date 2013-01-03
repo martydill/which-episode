@@ -6,11 +6,15 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 
+#import <MessageUI/MFMailComposeViewController.h>
+
 #import "ShowListTableViewController.h"
 #import "ShowDetailsViewController.h"
 #import "DataLoader.h"
 #import "DataSaver.h"
 #import "WhichEpisodeAppDelegate.h"
+
+static NSString* const EmailButtonTitle = @"Email Show List";
 
 @interface ShowListTableViewController ()
 
@@ -56,6 +60,32 @@
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
 
     self.navigationItem.rightBarButtonItem = anotherButton;
+    
+    UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Actions" style:UIBarButtonSystemItemAdd target:self action:@selector(onActionsTouch)];
+    [self.navigationItem setLeftBarButtonItem:button];
+}
+
+
+-(void) onActionsTouch
+{
+    UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"What Do You Want To Do?"
+                                                       delegate:self
+                                              cancelButtonTitle:@"Cancel"
+                                         destructiveButtonTitle:nil otherButtonTitles:EmailButtonTitle, nil];
+    
+    [sheet showFromBarButtonItem:self.navigationItem.leftBarButtonItem animated:true];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == -1 || buttonIndex == actionSheet.cancelButtonIndex)
+        return;
+    
+    NSString* title = [actionSheet buttonTitleAtIndex:buttonIndex];
+    if([title isEqualToString:EmailButtonTitle])
+    {
+        [self email];
+    }
 }
 
 - (void)viewDidUnload
@@ -171,5 +201,38 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
+-(void)email
+{
+    if ([MFMailComposeViewController canSendMail])
+    {
+        NSString* subject = [NSString stringWithFormat:@"Which Episode - Show List"];
+        
+        NSMutableString* message = [[NSMutableString alloc] init];
+        
+        for(Show* show in self.shows)
+        {
+            [message appendFormat:@"%@ - Season %d Episode %d\n", show.name, show.season, show.episode ];
+        }
+        
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+        controller.mailComposeDelegate = self;
+        [controller setSubject:subject];
+        [controller setMessageBody:message isHTML:FALSE];
+        if (controller) [self presentModalViewController:controller animated:YES];
+    }
+    else
+    {
+        NSLog(@"Can't send email");
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
+
 
 @end

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4017643016952DD600217802 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4017642F16952DD600217802 /* Default-568h@2x.png */; };
+		62DD43F4A11157AC5556CBBD /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62DD43F346FD12E556B4B7C6 /* MessageUI.framework */; };
 		CE13665315C4A38D000521DC /* iRate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE13665215C4A38D000521DC /* iRate.m */; };
 		CE9BB2F0156B3A94008F9B57 /* whichepisode.sqlite3 in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */; };
 		CE9BB2F4156B4242008F9B57 /* button_minus.png in Resources */ = {isa = PBXBuildFile; fileRef = CE9BB2F2156B4242008F9B57 /* button_minus.png */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		4017642F16952DD600217802 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		62DD43F346FD12E556B4B7C6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE13665115C4A38D000521DC /* iRate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iRate.h; sourceTree = "<group>"; };
 		CE13665215C4A38D000521DC /* iRate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iRate.m; sourceTree = "<group>"; };
 		CE9BB2EF156B3A94008F9B57 /* whichepisode.sqlite3 */ = {isa = PBXFileReference; lastKnownFileType = file; path = whichepisode.sqlite3; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				CEF091BA15682C2B00CB9B6B /* UIKit.framework in Frameworks */,
 				CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */,
 				CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */,
+				62DD43F4A11157AC5556CBBD /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +127,7 @@
 				CEF091B915682C2B00CB9B6B /* UIKit.framework */,
 				CEF091BB15682C2B00CB9B6B /* Foundation.framework */,
 				CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */,
+				62DD43F346FD12E556B4B7C6 /* MessageUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
