@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="1.1" toolsVersion="2182" systemVersion="11D50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="424-CU-2sd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="424-CU-2sd">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
-        <development defaultVersion="4200" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1181"/>
+        <deployment defaultVersion="1536" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--Show List Table View Controller - Shows-->
         <scene sceneID="4rF-Fh-roO">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tnM-Nu-bfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="5YI-aA-Aqc" customClass="ShowListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="gD6-iH-uls">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -54,13 +52,13 @@
                         <barButtonItem key="backBarButtonItem" title="Shows" id="56k-kW-8PY"/>
                     </navigationItem>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tnM-Nu-bfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-294" y="371"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="MD2-ST-PKR">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bZi-5W-ae2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController definesPresentationContext="YES" id="424-CU-2sd" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HGL-jh-xh8">
                         <autoresizingMask key="autoresizingMask"/>
@@ -69,13 +67,13 @@
                         <segue destination="5YI-aA-Aqc" kind="relationship" relationship="rootViewController" id="i8P-s3-MBP"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bZi-5W-ae2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-777" y="612"/>
         </scene>
         <!--Show Details View Controller - Show Details-->
         <scene sceneID="AlH-P5-yFD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cjY-Sn-vqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ShowDetails" id="Qgh-Zn-CVE" customClass="ShowDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g4B-6V-7bB">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
@@ -83,7 +81,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="whichepisode_background.png" id="WmY-9d-PCH">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Show Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="8K3-2v-g1f">
                                 <rect key="frame" x="15" y="4" width="169" height="21"/>
@@ -113,8 +111,8 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="oZB-Bk-kzN">
-                                <rect key="frame" x="62" y="229" width="197" height="184"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="62" y="228" width="197" height="184"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="3" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" id="Obq-pX-flP">
@@ -190,15 +188,15 @@
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Loading Image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" id="T6s-kP-Opw">
-                                <rect key="frame" x="70" y="304" width="180" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="70" y="233" width="180" height="174"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" hidesWhenStopped="YES" style="whiteLarge" id="M6a-EW-gtf">
                                 <rect key="frame" x="142" y="333" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                 <color key="color" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                         </subviews>
@@ -214,6 +212,7 @@
                         <outlet property="showNameLabel" destination="iYC-ih-hHu" id="s2N-X1-p8d"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cjY-Sn-vqV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="240" y="122"/>
         </scene>
@@ -223,6 +222,26 @@
         <image name="button_plus.png" width="192" height="128"/>
         <image name="whichepisode_background.png" width="960" height="640"/>
     </resources>
+    <classes>
+        <class className="ShowDetailsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowDetailsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="episodeMinusTouch:"/>
+                <relationship kind="action" name="episodePlusTouch:"/>
+                <relationship kind="action" name="seasonMinusTouch:"/>
+                <relationship kind="action" name="seasonPlusTouch:"/>
+                <relationship kind="outlet" name="episodeTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="loadingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="loadingSpinner" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="seasonTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="showImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="showNameLabel" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ShowListTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ShowListTableViewController.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

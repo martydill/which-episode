@@ -51,7 +51,8 @@
 {
     [super viewDidLoad];
     showNameLabel.delegate = self;
-      
+    
+    [showImageView.layer setMasksToBounds:true];
     [showImageView.layer setCornerRadius:30.0f];
     [showImageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [showImageView.layer setBorderWidth:1.5f];
