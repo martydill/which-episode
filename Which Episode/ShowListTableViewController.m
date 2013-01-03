@@ -15,6 +15,10 @@
 #import "WhichEpisodeAppDelegate.h"
 
 static NSString* const EmailButtonTitle = @"Email Show List";
+static NSString* const SortNewestFirst = @"Sort Newest First";
+static NSString* const SortOldestFirst = @"Sort Oldest First";
+static NSString* const SortAToZ = @"Sort A - Z";
+static NSString* const SortZToA = @"Sort Z - A";
 
 @interface ShowListTableViewController ()
 
@@ -24,6 +28,7 @@ static NSString* const EmailButtonTitle = @"Email Show List";
 
 @implementation ShowListTableViewController
 
+@synthesize sortedShows;
 @synthesize shows;
 @synthesize database;
 
@@ -53,25 +58,66 @@ static NSString* const EmailButtonTitle = @"Email Show List";
     [super viewDidLoad];
     WhichEpisodeAppDelegate* del = [[UIApplication sharedApplication] delegate];
     self.database = del.database;
-    
-    DataLoader* loader = [[DataLoader alloc] init];
-    self.shows = [loader loadRecordsFromDatabase:database];
-    
+
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonPressed)];
 
     self.navigationItem.rightBarButtonItem = anotherButton;
     
     UIBarButtonItem* button = [[UIBarButtonItem alloc] initWithTitle:@"Actions" style:UIBarButtonSystemItemAdd target:self action:@selector(onActionsTouch)];
     [self.navigationItem setLeftBarButtonItem:button];
+
+    [self setSort:[self getSort]];
 }
 
+const int Sort_OldestFirst = 0;
+const int Sort_NewestFirst = 1;
+const int Sort_AtoZ = 2;
+const int Sort_ZtoA = 3;
+
+-(void)setSort:(int)sort
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setInteger:sort forKey:@"sort"];
+
+    DataLoader* loader = [[DataLoader alloc] init];
+    self.shows = [loader loadRecordsFromDatabase:database];
+
+    //NSArray* shows;
+    if(sort == Sort_OldestFirst)
+    {
+        self.sortedShows = [NSArray arrayWithArray:self.shows];
+    }
+    else if(sort == Sort_NewestFirst)
+    {
+        self.sortedShows = [[self.shows reverseObjectEnumerator] allObjects];
+    }
+    else if(sort == Sort_ZtoA)
+    {
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+        self.sortedShows = [self.shows sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    }
+    else if(sort == Sort_AtoZ)
+    {
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        self.sortedShows = [self.shows sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    }
+
+    [self.tableView reloadData];
+}
+
+-(int)getSort
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    int sort = [defaults integerForKey:@"sort"];
+    return sort;
+}
 
 -(void) onActionsTouch
 {
     UIActionSheet* sheet = [[UIActionSheet alloc] initWithTitle:@"What Do You Want To Do?"
                                                        delegate:self
                                               cancelButtonTitle:@"Cancel"
-                                         destructiveButtonTitle:nil otherButtonTitles:EmailButtonTitle, nil];
+                                         destructiveButtonTitle:nil otherButtonTitles:SortAToZ, SortZToA, SortNewestFirst, SortOldestFirst, EmailButtonTitle, nil];
     
     [sheet showFromBarButtonItem:self.navigationItem.leftBarButtonItem animated:true];
 }
@@ -86,6 +132,22 @@ static NSString* const EmailButtonTitle = @"Email Show List";
     {
         [self email];
     }
+    else if([title isEqualToString:SortAToZ])
+    {
+        [self setSort:Sort_AtoZ];
+    }
+    else if([title isEqualToString:SortZToA])
+    {
+        [self setSort:Sort_ZtoA];
+    }
+    else if([title isEqualToString:SortOldestFirst])
+    {
+        [self setSort:Sort_OldestFirst];
+    }
+    else if([title isEqualToString:SortNewestFirst])
+    {
+        [self setSort:Sort_NewestFirst];
+    }
 }
 
 - (void)viewDidUnload
@@ -96,13 +158,14 @@ static NSString* const EmailButtonTitle = @"Email Show List";
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.tableView reloadData];
+
+    [self setSort:[self getSort]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath* selectedPath = [self.tableView indexPathForSelectedRow];
-    Show* show = [self.shows objectAtIndex:selectedPath.row];
+    Show* show = [self.sortedShows objectAtIndex:selectedPath.row];
     ShowDetailsViewController* detailsVC = (ShowDetailsViewController*)[segue destinationViewController];
     
     detailsVC.show = show;
@@ -122,7 +185,7 @@ static NSString* const EmailButtonTitle = @"Email Show List";
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
-    Show* show = [self.shows objectAtIndex:indexPath.row];
+    Show* show = [self.sortedShows objectAtIndex:indexPath.row];
     
     ShowDetailsViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowDetails"];
     controller.database = self.database;
@@ -132,7 +195,7 @@ static NSString* const EmailButtonTitle = @"Email Show List";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.shows.count;
+    return self.sortedShows.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -144,7 +207,7 @@ static NSString* const EmailButtonTitle = @"Email Show List";
     
     }
     
-    Show* show = [self.shows objectAtIndex:indexPath.row];
+    Show* show = [self.sortedShows objectAtIndex:indexPath.row];
     if(show.name != nil && show.name.length > 0)
         cell.textLabel.text = show.name;
     else
@@ -162,11 +225,11 @@ static NSString* const EmailButtonTitle = @"Email Show List";
     if (editingStyle == UITableViewCellEditingStyleDelete)
     {
         int row = indexPath.row;
-        Show* show = [self.shows objectAtIndex:row];
+        Show* show = [self.sortedShows objectAtIndex:row];
         DataSaver* saver = [[DataSaver alloc] init];
         [saver deleteRecord:show fromDatabase:database];
-        [self.shows removeObjectAtIndex:row];
-        [self.tableView reloadData];
+        [self.shows removeObject:show];
+        [self setSort:[self getSort]];
     }
 }
 
@@ -210,7 +273,7 @@ static NSString* const EmailButtonTitle = @"Email Show List";
         
         NSMutableString* message = [[NSMutableString alloc] init];
         
-        for(Show* show in self.shows)
+        for(Show* show in self.sortedShows)
         {
             [message appendFormat:@"%@ - Season %d Episode %d\n", show.name, show.season, show.episode ];
         }

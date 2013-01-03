@@ -12,6 +12,7 @@
 @interface ShowListTableViewController : UITableViewController
 
 @property (retain) NSMutableArray* shows;
+@property (retain) NSArray* sortedShows;
 @property (assign) sqlite3* database;
 
 @end
