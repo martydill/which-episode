@@ -203,16 +203,6 @@ const int Sort_ZtoA = 3;
         return 96.0f;
 }
 
--(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
-{
-    Show* show = [self.sortedShows objectAtIndex:indexPath.row];
-    
-    ShowDetailsViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowDetails"];
-    controller.database = self.database;
-    controller.show = show;
-    [self.navigationController pushViewController:controller animated:YES];
-}
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.sortedShows.count;
@@ -278,15 +268,12 @@ const int Sort_ZtoA = 3;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    Show* show = [self.sortedShows objectAtIndex:indexPath.row];
     
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    ShowDetailsViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowDetails"];
+    controller.database = self.database;
+    controller.show = show;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 -(void)email
