@@ -291,10 +291,10 @@ bool isDownloadingShowInfo = false;
 {
     UIImage* bigImage = [[UIImage alloc] initWithData:data];
     UIImage* image;
-   // if(UIUserInterfaceIdiom == UIUserInterfaceIdiomPhone)
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 2 maxHeight:180 * 2];
+    else
         image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 4 maxHeight:180 * 4];
-    //else
-    //    image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 2 maxHeight:180 * 2];
     
     self.showImageView.image = image;
     self.show.image = image;
