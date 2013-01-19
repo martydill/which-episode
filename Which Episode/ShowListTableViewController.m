@@ -184,10 +184,13 @@ const int Sort_ZtoA = 3;
     return 1;
 }
 
-//-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    
-//}
+-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+        return 44.0f;
+    else
+        return 96.0f;
+}
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
@@ -220,7 +223,11 @@ const int Sort_ZtoA = 3;
         cell.textLabel.text = @"[No Name]";
     NSString* whereLabel = [NSString stringWithFormat:@"Season %d Episode %d", show.season, show.episode];
     cell.detailTextLabel.text = whereLabel;
-        
+    if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+    {
+        cell.imageView.image = show.image;
+    }
+    
     return cell;
 }
 
