@@ -52,10 +52,14 @@ static NSString* const SortZToA = @"Sort Z - A";
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+UIColor* alternateRowBackground;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    alternateRowBackground = [UIColor colorWithRed:0.97 green:0.97 blue:0.97 alpha:1.0];
+    
     WhichEpisodeAppDelegate* del = [[UIApplication sharedApplication] delegate];
     self.database = del.database;
 
@@ -170,6 +174,13 @@ const int Sort_ZtoA = 3;
     ShowDetailsViewController* detailsVC = (ShowDetailsViewController*)[segue destinationViewController];
     
     detailsVC.show = show;
+}
+
+
+-(void) tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell*)cell forRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    UIColor* color = indexPath.row % 2 == 0 ? [UIColor whiteColor] : alternateRowBackground;
+    cell.backgroundColor = color;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
