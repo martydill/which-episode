@@ -290,7 +290,12 @@ bool isDownloadingShowInfo = false;
 - (void)handleImageInfoDownloaded:(NSData*)data
 {
     UIImage* bigImage = [[UIImage alloc] initWithData:data];
-    UIImage* image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 2 maxHeight:180 * 2];
+    UIImage* image;
+   // if(UIUserInterfaceIdiom == UIUserInterfaceIdiomPhone)
+        image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 4 maxHeight:180 * 4];
+    //else
+    //    image = [self imageWithImage:bigImage scaledToMaxWidth:190 * 2 maxHeight:180 * 2];
+    
     self.showImageView.image = image;
     self.show.image = image;
     

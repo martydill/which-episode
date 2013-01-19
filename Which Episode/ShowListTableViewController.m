@@ -184,6 +184,11 @@ const int Sort_ZtoA = 3;
     return 1;
 }
 
+//-(float)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    
+//}
+
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
 {
     Show* show = [self.sortedShows objectAtIndex:indexPath.row];
