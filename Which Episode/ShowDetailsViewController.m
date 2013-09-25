@@ -213,7 +213,7 @@ bool isDownloadingShowInfo = false;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);  
     NSString *documentsPath = [paths objectAtIndex:0];
     
-    return [documentsPath stringByAppendingPathComponent:name]; 
+    return [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/"] stringByAppendingPathComponent:name];
 }
 
 -(NSString*)getPosterUrlFromJson:(id)json

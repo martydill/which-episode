@@ -36,11 +36,8 @@
         NSURLRequest* request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
 
         connection = [[NSURLConnection alloc] initWithRequest: request delegate:self startImmediately:NO];
-        
-
     }
 
-        
     return self;
 }
 

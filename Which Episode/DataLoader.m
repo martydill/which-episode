@@ -36,7 +36,7 @@
            Show* show = [[Show alloc] init];
            show.name = name;
            show.id = keyString;
-           show.season = season;
+           show.season = season;    
            show.episode = episode;
            show.imagePath = imagePath;
            show.isNew = false;
@@ -48,25 +48,21 @@
                UIImage* image = [UIImage imageWithData:data];
                show.image = image;
            }
-//           ToDoEntry* entry = [[ToDoEntry alloc] init];
-//           entry.name = name;
-//           entry.description = description;
-//           entry.key = keyString;
-//           entry.priority = priority;
-//           entry.isCompleted = isCompleted;
-//           entry.isNote = isNote;
-//           entry.imagePath = [NSString stringWithCString:imagePathChars encoding:NSUTF8StringEncoding];
-//           entry.imageThumbnailPath = [NSString stringWithCString:imageThumbnailPathChars encoding:NSUTF8StringEncoding];
-//           entry.createdDate = [NSDate dateWithTimeIntervalSince1970: createdDateDouble];
-//           entry.dueDate = [NSDate dateWithTimeIntervalSince1970:dueDateDouble];
-//           entry.completedDate = [NSDate dateWithTimeIntervalSince1970:completedDateDouble];
-//           
-//          if(entry.imageThumbnailPath != Nil)
-//          {
-//               DLog(@"Loading image thumbnail from %@", entry.imageThumbnailPath);
-//               entry.imageThumbnail = [UIImage imageWithContentsOfFile:entry.imageThumbnailPath];
-//          }    
-//               
+           else
+           {
+               NSString* fileName = [show.imagePath lastPathComponent];
+               NSString* fixedPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/"]stringByAppendingPathComponent:fileName];
+               
+               if([manager fileExistsAtPath:fixedPath])
+               {
+                   show.imagePath = fixedPath;
+                   
+                   NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
+                   UIImage* image = [UIImage imageWithData:data];
+                   show.image = image;
+               }
+           }
+         
            [allTableData addObject:show];
        }
        sqlite3_finalize(statement);
