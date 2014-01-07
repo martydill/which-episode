@@ -109,7 +109,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" id="zF2-kf-m7p">
-                                <rect key="frame" x="31" y="347" width="707" height="677"/>
+                                <rect key="frame" x="31" y="347" width="707" height="670"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </imageView>
