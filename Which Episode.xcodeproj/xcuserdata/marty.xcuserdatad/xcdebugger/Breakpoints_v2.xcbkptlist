@@ -10,11 +10,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Which Episode/DataSaver.m"
-            timestampString = "380319750.742614"
+            timestampString = "410737996.082562"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
+            landmarkName = "-deleteRecord:fromDatabase:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Which Episode/DataSaver.m"
+            timestampString = "410738222.876098"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "-saveRecord:toDatabase:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,14 +41,44 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Which Episode/ShowListTableViewController.m"
-            timestampString = "380319885.963277"
+            filePath = "Which Episode/DataSaver.m"
+            timestampString = "410740371.357013"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-deleteRecord:fromDatabase:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DataSaver deleteRecord:fromDatabase:]"
+                  moduleName = "Which Episode"
+                  urlString = "file://localhost/Users/marty/Projects/WhichEpisode/Which%20Episode/DataSaver.m"
+                  timestampString = "410740729.70901"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "955">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[DataSaver deleteRecord:fromDatabase:]"
+                  moduleName = "Which Episode"
+                  urlString = "file://localhost/Users/marty/Projects/WhichEpisode/Which%20Episode/DataSaver.m"
+                  timestampString = "410740729.709767"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "147"
+                  endingLineNumber = "147"
+                  offsetFromSymbolStart = "1019">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -41,109 +87,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Which Episode/DataLoader.m"
-            timestampString = "383776400.045801"
+            filePath = "Which Episode/DataSaver.m"
+            timestampString = "410746203.381585"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "-loadRecordsFromDatabase:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/ShowDetailsViewController.m"
-            timestampString = "401681733.841244"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "-documentsPathForFileName:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/ShowDetailsViewController.m"
-            timestampString = "401682125.186643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "-handleImageInfoDownloaded:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/ShowDetailsViewController.m"
-            timestampString = "401682186.376998"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216"
-            landmarkName = "-documentsPathForFileName:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/DataLoader.m"
-            timestampString = "401686305.180256"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "-loadRecordsFromDatabase:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/DataLoader.m"
-            timestampString = "401686305.180256"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "-loadRecordsFromDatabase:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Which Episode/DataLoader.m"
-            timestampString = "401688480.300178"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "-loadRecordsFromDatabase:"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-deleteRecord:fromDatabase:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

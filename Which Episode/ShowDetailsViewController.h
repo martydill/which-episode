@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Show.h"
 #import <sqlite3.h>
+#import "ShowListTableViewController.h"
 
 @interface ShowDetailsViewController : UIViewController
 
@@ -16,6 +17,7 @@
 
 - (IBAction)episodeMinusTouch:(id)sender;
 
+@property (strong, nonatomic) ShowListTableViewController* lock;
 @property (strong) Show* show;
 @property (weak, nonatomic) IBOutlet UITextField *showNameLabel;
 @property (weak, nonatomic) IBOutlet UITextField *seasonTextField;

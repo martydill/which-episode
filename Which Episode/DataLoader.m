@@ -18,7 +18,7 @@
     
     NSString *query = [NSString stringWithFormat:@"SELECT id, name, imagePath, season, episode from shows"];
 
-   sqlite3_stmt *statement;
+    sqlite3_stmt *statement = nil;
    if (sqlite3_prepare_v2(database, [query UTF8String], -1, &statement, nil) == SQLITE_OK)
    {
        while (sqlite3_step(statement) == SQLITE_ROW)
@@ -32,7 +32,7 @@
            NSString* keyString = [NSString stringWithCString:key encoding:NSUTF8StringEncoding];
            NSString *name = [[NSString alloc] initWithUTF8String:nameChars];
            NSString *imagePath = [[NSString alloc] initWithUTF8String:imagePathChars];
-                     
+              	       
            Show* show = [[Show alloc] init];
            show.name = name;
            show.id = keyString;
@@ -40,29 +40,31 @@
            show.episode = episode;
            show.imagePath = imagePath;
            show.isNew = false;
-           
-           NSFileManager* manager = [[NSFileManager alloc] init];
-           if([manager fileExistsAtPath:show.imagePath])
+           if([show.imagePath hasSuffix:@".png"])
            {
-               NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
-               UIImage* image = [UIImage imageWithData:data];
-               show.image = image;
-           }
-           else
-           {
-               NSString* fileName = [show.imagePath lastPathComponent];
-               NSString* fixedPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/"]stringByAppendingPathComponent:fileName];
-               
-               if([manager fileExistsAtPath:fixedPath])
+               NSFileManager* manager = [[NSFileManager alloc] init];
+               if([manager fileExistsAtPath:show.imagePath])
                {
-                   show.imagePath = fixedPath;
-                   
                    NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
                    UIImage* image = [UIImage imageWithData:data];
                    show.image = image;
                }
+               else
+               {
+                   NSString* fileName = [show.imagePath lastPathComponent];
+                   NSString* fixedPath = [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/"]stringByAppendingPathComponent:fileName];
+                   
+                   if([manager fileExistsAtPath:fixedPath])
+                   {
+                       show.imagePath = fixedPath;
+                       
+                       NSData* data = [NSData dataWithContentsOfFile:show.imagePath];
+                       UIImage* image = [UIImage imageWithData:data];
+                       show.image = image;
+                   }
+               }
            }
-         
+           
            [allTableData addObject:show];
        }
        sqlite3_finalize(statement);

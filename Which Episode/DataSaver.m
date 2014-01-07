@@ -14,7 +14,7 @@
 
 -(void) saveRecord:(Show*)record toDatabase:(sqlite3*)database
 {
-    sqlite3_stmt    *statement;
+    sqlite3_stmt    *statement = nil;
        
     NSString* sql;
     if(record.isNew)
@@ -24,7 +24,7 @@
                "(id, name, imagePath, season, episode) "
                "VALUES (?,?,?,?,?)"];
         
-        if(sqlite3_prepare(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
+        if(sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
         {
             DLog(@"Failed to prepare statement %@", sql);
         }
@@ -59,7 +59,7 @@
                "set name = ?, imagePath = ?, season = ?, episode = ? "
                "WHERE id = ?"];
         
-        if(sqlite3_prepare(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
+        if(sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
         {
             DLog(@"Failed to prepare statement %@", sql);
         }
@@ -119,14 +119,16 @@
     {
         NSString* sql = @"DELETE FROM shows WHERE id = ?";
         sqlite3_stmt* statement = nil;
-        if(sqlite3_prepare(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
+        if(sqlite3_prepare_v2(database, [sql UTF8String], -1, &statement, NULL) != SQLITE_OK)
         {
             DLog(@"Failed to prepare statement %@", sql);
+            return;
         }
         const char* c = [record.id UTF8String];
         if(sqlite3_bind_text(statement, 1, c, -1, SQLITE_TRANSIENT) != SQLITE_OK)
         {
             DLog(@"Failed to bind parameter");
+            return;
         }
         
         if(sqlite3_step(statement) == SQLITE_DONE)
@@ -135,8 +137,14 @@
         }
         else
         {
-            DLog(@"Delete failed");
+            NSLog(@"%s SQLITE_ERROR '%s' (%1d)", __FUNCTION__, sqlite3_errmsg(database), sqlite3_errcode(database));
+            
+            //char* error = sqlite3_errmsg(database);
+           // int code = sqlite3_errcode(database);
+           // DLog(@"Delete failed %s", error);
         }
+        
+        sqlite3_finalize(statement);
     }
 }
 

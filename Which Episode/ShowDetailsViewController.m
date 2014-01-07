@@ -11,6 +11,7 @@
 #import "DataSaver.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Downloader.h"
+#import <Crashlytics/Crashlytics.h>
 
 //#define BASE_SEARCH_URL @"http://www.imdbapi.com/?t=%@"
 #define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"
@@ -32,6 +33,7 @@
 @synthesize episodeTextField;
 @synthesize database;
 @synthesize shows;
+@synthesize lock;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -56,6 +58,7 @@
     [showImageView.layer setCornerRadius:30.0f];
     [showImageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [showImageView.layer setBorderWidth:1.5f];
+    self.navigationController.navigationBar.translucent = NO;
 }
 
 - (void)viewDidUnload
@@ -167,9 +170,11 @@ bool isDownloadingShowInfo = false;
     show.season = [seasonTextField.text intValue];
     show.episode = [episodeTextField.text intValue];
     
-    DataSaver* saver = [[DataSaver alloc] init];
-    
-    [saver saveRecord:show toDatabase:database];
+    @synchronized(self.lock)
+    {
+        DataSaver* saver = [[DataSaver alloc] init];
+        [saver saveRecord:show toDatabase:database];
+    }
 }
 
 - (IBAction)seasonMinusTouch:(id)sender
@@ -210,8 +215,8 @@ bool isDownloadingShowInfo = false;
 
 - (NSString *)documentsPathForFileName:(NSString *)name
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);  
-    NSString *documentsPath = [paths objectAtIndex:0];
+    //NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    //NSString *documentsPath = [paths objectAtIndex:0];
     
     return [[NSHomeDirectory() stringByAppendingPathComponent:@"Documents/"] stringByAppendingPathComponent:name];
 }

@@ -83,9 +83,12 @@ const int Sort_ZtoA = 3;
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setInteger:sort forKey:@"sort"];
 
-    DataLoader* loader = [[DataLoader alloc] init];
-    self.shows = [loader loadRecordsFromDatabase:database];
-
+    @synchronized(self)
+    {
+        DataLoader* loader = [[DataLoader alloc] init];
+        self.shows = [loader loadRecordsFromDatabase:database];
+    }
+    
     //NSArray* shows;
     if(sort == Sort_OldestFirst)
     {
@@ -240,8 +243,13 @@ const int Sort_ZtoA = 3;
     {
         int row = indexPath.row;
         Show* show = [self.sortedShows objectAtIndex:row];
-        DataSaver* saver = [[DataSaver alloc] init];
-        [saver deleteRecord:show fromDatabase:database];
+        
+        @synchronized(self)
+        {
+            DataSaver* saver = [[DataSaver alloc] init];
+            [saver deleteRecord:show fromDatabase:database];
+        }
+        
         [self.shows removeObject:show];
         [self setSort:[self getSort]];
     }
@@ -271,6 +279,7 @@ const int Sort_ZtoA = 3;
     Show* show = [self.sortedShows objectAtIndex:indexPath.row];
     
     ShowDetailsViewController* controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ShowDetails"];
+    controller.lock = self;
     controller.database = self.database;
     controller.show = show;
     [self.navigationController pushViewController:controller animated:YES];
