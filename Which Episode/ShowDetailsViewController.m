@@ -13,8 +13,8 @@
 #import "Downloader.h"
 
 //#define BASE_SEARCH_URL @"http://www.imdbapi.com/?t=%@"
-#define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"
-
+//#define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"
+#define BASE_SEARCH_URL @"http://www.omdbapi.com/?t=XXX&y=&plot=short&r=json"
 @interface ShowDetailsViewController ()
 @property (strong) Downloader* downloader;
 @end
@@ -101,7 +101,8 @@ bool isDownloadingShowInfo = false;
             loadingSpinner.hidden = false;
             [loadingSpinner startAnimating];
         
-            NSString* url = [NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
+            NSString* url = BASE_SEARCH_URL;//[NSString stringWithFormat:@"%@%@", BASE_SEARCH_URL, showNameLabel.text];
+            url = [url stringByReplacingOccurrencesOfString:@"XXX" withString:showNameLabel.text];
             url = [url stringByReplacingOccurrencesOfString:@" " withString:@"+"];
 
             isDownloadingShowInfo = true;
@@ -222,16 +223,23 @@ bool isDownloadingShowInfo = false;
 
 -(NSString*)getPosterUrlFromJson:(id)json
 {
-    if([json isKindOfClass:[NSArray class]])
-    {
-        for(NSDictionary* dict in json)
-        {
-            NSDictionary* images = [dict valueForKey:@"images"];
-            NSString* poster = [images valueForKey:@"poster"];
-            return poster;
-        }
-    }
+// Trakt.tv
+//    if([json isKindOfClass:[NSArray class]])
+//    {
+//        for(NSDictionary* dict in json)
+//        {
+//            NSDictionary* images = [dict valueForKey:@"images"];
+//            NSString* poster = [images valueForKey:@"poster"];
+//            return poster;
+//        }
+//    }
     
+    // OMDBAPI
+    if(json != nil)
+    {
+        NSString* poster = [json valueForKey:@"Poster"];
+        return poster;
+    }
     return nil;
 }
 
