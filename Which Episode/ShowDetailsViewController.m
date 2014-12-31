@@ -11,7 +11,6 @@
 #import "DataSaver.h"
 #import <QuartzCore/QuartzCore.h>
 #import "Downloader.h"
-#import <Crashlytics/Crashlytics.h>
 
 //#define BASE_SEARCH_URL @"http://www.imdbapi.com/?t=%@"
 #define BASE_SEARCH_URL @"http://api.trakt.tv/search/shows.json/6ad61602068d0193f1b2d46cd40109c5/"

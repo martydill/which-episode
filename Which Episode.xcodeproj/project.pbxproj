@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4017643016952DD600217802 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4017642F16952DD600217802 /* Default-568h@2x.png */; };
-		40BB1140187B588100D5CC2C /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40BB113F187B588100D5CC2C /* Crashlytics.framework */; };
 		40C4A7E017F140550063F643 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C4A7DF17F140550063F643 /* Images.xcassets */; };
 		40FB714A16AB487E00564811 /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FB714916AB487E00564811 /* Default-Portrait~ipad.png */; };
 		40FB714C16AB488700564811 /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FB714B16AB488700564811 /* Default-Portrait@2x~ipad.png */; };
@@ -46,7 +45,6 @@
 
 /* Begin PBXFileReference section */
 		4017642F16952DD600217802 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		40BB113F187B588100D5CC2C /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		40C4A7DF17F140550063F643 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		40FB714916AB487E00564811 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
 		40FB714B16AB488700564811 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
@@ -105,7 +103,6 @@
 				CEF091BC15682C2B00CB9B6B /* Foundation.framework in Frameworks */,
 				CEF091BE15682C2B00CB9B6B /* CoreGraphics.framework in Frameworks */,
 				62DD43F4A11157AC5556CBBD /* MessageUI.framework in Frameworks */,
-				40BB1140187B588100D5CC2C /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +138,6 @@
 		CEF091B815682C2B00CB9B6B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				40BB113F187B588100D5CC2C /* Crashlytics.framework */,
 				CEF091B915682C2B00CB9B6B /* UIKit.framework */,
 				CEF091BB15682C2B00CB9B6B /* Foundation.framework */,
 				CEF091BD15682C2B00CB9B6B /* CoreGraphics.framework */,
@@ -225,7 +221,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = WhichEpisode;
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0610;
 				TargetAttributes = {
 					CEF091B415682C2B00CB9B6B = {
 						DevelopmentTeam = 6D93JFQ38V;
@@ -351,9 +347,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -386,9 +384,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

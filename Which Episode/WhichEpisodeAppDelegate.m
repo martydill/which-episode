@@ -8,7 +8,6 @@
 
 #import "WhichEpisodeAppDelegate.h"
 #import "iRate.h"
-#import <Crashlytics/Crashlytics.h>
 
 @implementation WhichEpisodeAppDelegate
 
@@ -17,8 +16,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [Crashlytics startWithAPIKey:@"518b4974ef290548b00d98609bb3db5e76562b9b"];
-    
     NSFileManager *fileManager = [NSFileManager defaultManager];//create instance of NSFileManager
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //create an array and store result of our search for the documents directory in it
     NSString *documentsDirectory = [paths objectAtIndex:0]; //create NSString object, that holds our  exact path to the documents directory
